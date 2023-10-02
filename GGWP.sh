@@ -1,6 +1,7 @@
 #!/bin/sh
 mkdir /volumes/untitled/tmp
 cd /volumes/untitled/tmp
+echo""
 echo " _                          _       __  __           _                   "
 echo "| |    __ _ _ __ _ __ _   _( )___  |  \/  | ___   __| |___               "
 echo "| |   / _\` | '__| '__| | | |// __| | |\/| |/ _ \ / _\` / __|              "
