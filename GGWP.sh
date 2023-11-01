@@ -20,7 +20,7 @@ echo ""
 
 sleep 2
 ECHO "Downloading MacOS Sonoma 14.0 Install Assistant.pkg"
-curl -OL --progress-bar https://swcdn.apple.com/content/downloads/26/09/042-58988-A_114Q05ZS90/yudaal746aeavnzu5qdhk26uhlphm3r79u/InstallAssistant.pkg
+curl -OL --progress-bar https://swcdn.apple.com/content/downloads/39/32/042-86434-A_HKAQU4T2OA/y8aibplm2qgy1ce8ux8fxy1efgsbvprgp2/InstallAssistant.pkg
 sleep 5
 ECHO "Installing Sonoma 14.0 Install Assistant @ /volumes/Untitled/Applications/"
 installer -verboseR -pkg /volumes/untitled/tmp/InstallAssistant.pkg -target "/volumes/untitled/"
