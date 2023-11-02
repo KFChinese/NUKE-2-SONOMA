@@ -1,15 +1,58 @@
 #!/bin/sh
-mkdir "/volumes/Macintosh HD/tmp"
-cd "/volumes/Macintosh HD/tmp"
 
-sleep 2
-ECHO "Downloading MacOS Sonoma Install Assistant"
+# Define paths
+TMP_DIR="/Volumes/Macintosh HD/tmp"
+PKG_PATH="$TMP_DIR/InstallAssistant.pkg"
+INSTALL_PATH="/volumes/Macintosh HD/applications/Install MacOS Sonoma.app/contents/macos"
+
+# Create temp directory
+mkdir "$TMP_DIR"
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to create directory $TMP_DIR"
+    exit 1
+fi
+
+cd "$TMP_DIR"
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to change directory to $TMP_DIR"
+    exit 1
+fi
+
+# Download MacOS Sonoma Install Assistant
+echo "Downloading MacOS Sonoma Install Assistant"
 curl -OL --progress-bar https://swcdn.apple.com/content/downloads/39/32/042-86434-A_HKAQU4T2OA/y8aibplm2qgy1ce8ux8fxy1efgsbvprgp2/InstallAssistant.pkg
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to download InstallAssistant.pkg"
+    exit 1
+fi
+
 sleep 5
-ECHO "Installing Sonoma Install Assistant"
-installer -verboseR -pkg "/volumes/Macintosh HD/tmp/InstallAssistant.pkg" -target "/volumes/Macintosh HD/"
+
+# Install Sonoma Install Assistant
+echo "Installing Sonoma Install Assistant"
+installer -verboseR -pkg "$PKG_PATH" -target "/Volumes/Macintosh HD"
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to install InstallAssistant.pkg"
+    exit 1
+fi
+
 sleep 5
-cd "/volumes/Macintosh HD/applications/Install MacOS Sonoma.app/contents/macos"
+
+cd "$INSTALL_PATH"
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to change directory to $INSTALL_PATH"
+    exit 1
+fi
+
 sleep 5
-ECHO "Opening MacOS Sonoma"
-"./InstallAssistant_springboard"
+
+# Open MacOS Sonoma
+echo "Opening MacOS Sonoma"
+./InstallAssistant_springboard
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to open MacOS Sonoma"
+    exit 1
+fi
+
+# Optionally, clean up the temporary directory
+# rm -rf "$TMP_DIR"
