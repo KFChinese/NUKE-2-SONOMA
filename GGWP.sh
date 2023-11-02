@@ -20,7 +20,7 @@ fi
 
 # Download MacOS Sonoma Install Assistant
 echo "Downloading MacOS Sonoma Install Assistant"
-curl -OL --progress-bar https://swcdn.apple.com/content/downloads/39/32/042-86434-A_HKAQU4T2OA/y8aibplm2qgy1ce8ux8fxy1efgsbvprgp2/InstallAssistant.pkg
+curl -OL --progress-bar https://swcdn.apple.com/content/downloads/26/09/042-58988-A_114Q05ZS90/yudaal746aeavnzu5qdhk26uhlphm3r79u/InstallAssistant.pkg
 if [ $? -ne 0 ]; then
     echo "Error: Failed to download InstallAssistant.pkg"
     exit 1
@@ -30,7 +30,7 @@ sleep 5
 
 # Install Sonoma Install Assistant
 echo "Installing Sonoma Install Assistant"
-installer -verboseR -pkg "$PKG_PATH" -target "/Volumes/Macintosh HD"
+installer -verboseR -dumplog -pkg "$PKG_PATH" -target "/Volumes/Macintosh HD"
 if [ $? -ne 0 ]; then
     echo "Error: Failed to install InstallAssistant.pkg"
     exit 1
