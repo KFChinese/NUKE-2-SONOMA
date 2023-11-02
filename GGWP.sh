@@ -5,6 +5,12 @@ TMP_DIR="/Volumes/Macintosh HD/tmp"
 PKG_PATH="$TMP_DIR/InstallAssistant.pkg"
 INSTALL_PATH="/volumes/Macintosh HD/applications/Install MacOS Sonoma.app/contents/macos"
 
+# Starts Caffeinate, Prevents sleep
+caffeinate -d &
+
+# Store the PID (Process ID) of the backgrounded caffeinate command
+CAFFEINATE_PID=$!
+
 # Create temp directory
 mkdir "$TMP_DIR"
 if [ $? -ne 0 ]; then
@@ -27,6 +33,7 @@ if [ $? -ne 0 ]; then
 fi
 
 sleep 5
+kill $CAFFEINATE_PID
 
 # Install Sonoma Install Assistant
 echo "Installing Sonoma Install Assistant"
