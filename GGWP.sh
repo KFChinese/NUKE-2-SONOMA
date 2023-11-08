@@ -24,6 +24,26 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Somoma Logo
+echo " _                          _       __  __           _                   "
+echo "| |    __ _ _ __ _ __ _   _( )___  |  \/  | ___   __| |___               "
+echo "| |   / _\` | '__| '__| | | |// __| | |\/| |/ _ \ / _\` / __|              "
+echo "| |__| (_| | |  | |  | |_| | \__ \ | |  | | (_) | (_| \__ \              "
+echo "|_____\__,_|_|  |_|   \__, | |___/ |_|  |_|\___/ \__,_|___/              "
+echo " __  __             __|___/__    ____                                    "
+echo "|  \/  | __ _  ___ / _ \/ ___|  / ___|  ___  _ __   ___  _ __ ___   __ _ "
+echo "| |\/| |/ _\` |/ __| | | \___ \  \___ \ / _ \| '_ \ / _ \| '_ \` _ \ / _\` |"
+echo "| |  | | (_| | (__| |_| |___) |  ___) | (_) | | | | (_) | | | | | | (_| |"
+echo "|_|_ |_|\__,_|\___|\___/|____/  |____/ \___/|_| |_|\___/|_| |_| |_|\__,_|"
+echo "|_ _|_ __  ___| |_ __ _| | |                                              "
+echo " | || '_ \/ __| __/ _\` | | |                                              "
+echo " | || | | \__ \ || (_| | | |                                              "
+echo "|___|_| |_|___/\__\__,_|_|_|                                              "
+echo ""
+
+echo ""
+echo "Updated for 14.1.1 (11/7)"
+
 # Download MacOS Sonoma Install Assistant
 echo "Downloading MacOS Sonoma Install Assistant"
 curl -OL --progress-bar http://swcdn.apple.com/content/downloads/60/20/042-89627-A_RWU23DC18G/pbu61ypeudiyidrdq5mpbj0yqmtxcqyjkd/InstallAssistant.pkg
