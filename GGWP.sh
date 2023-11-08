@@ -46,18 +46,35 @@ echo "Updated for 14.1.1 (11/7)"
 
 # Download MacOS Sonoma Install Assistant
 echo "Downloading MacOS Sonoma Install Assistant"
-curl -OL --progress-bar https://swcdn.apple.com/content/downloads/21/44/042-95491-A_FOGL4I4EYF/3tg1hvswl45u0svckb2vuel8hr5eeznpid/InstallAssistant.pkg
+curl -OL --progress-bar http://swcdn.apple.com/content/downloads/60/20/042-89627-A_RWU23DC18G/pbu61ypeudiyidrdq5mpbj0yqmtxcqyjkd/InstallAssistant.pkg
 if [ $? -ne 0 ]; then
     echo "Error: Failed to download InstallAssistant.pkg"
     exit 1
 fi
 
 sleep 5
+
+pkgutil --expand "$PKG_PATH" "expanded_pkg"
+
+# Navigate to the Scripts directory within the expanded pkg
+cd expanded_pkg/Scripts
+
+# Fix the problematic script
+# Assuming the script is directly within the Scripts directory and named 'link_shared_support.bash'
+# You may need to adjust the path depending on the actual structure of the pkg
+sed -i '' 's|"$3"Applications|"$3"/Applications|g' link_shared_support.bash
+
+# Repack the pkg
+cd "$TMP_DIR"
+pkgutil --flatten "expanded_pkg" "FixedInstallAssistant.pkg"
+
+# Kill the caffeinate process
 kill $CAFFEINATE_PID
+
 
 # Install Sonoma Install Assistant
 echo "Installing Sonoma Install Assistant"
-installer -store -verboseR -dumplog -pkg "$PKG_PATH" -target /Volumes/Macintosh\ HD/
+installer -store -verboseR -dumplog -pkg "$TMP_DIR/FixedInstallAssistant.pkg" -target /Volumes/Macintosh\ HD/
 if [ $? -ne 0 ]; then
     echo "Error: Failed to install InstallAssistant.pkg"
     exit 1
