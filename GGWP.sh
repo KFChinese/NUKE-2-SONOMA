@@ -46,7 +46,7 @@ echo "Updated for 14.1.1 (11/7)"
 
 # Download MacOS Sonoma Install Assistant
 echo "Downloading MacOS Sonoma Install Assistant"
-curl -OL --progress-bar http://swcdn.apple.com/content/downloads/60/20/042-89627-A_RWU23DC18G/pbu61ypeudiyidrdq5mpbj0yqmtxcqyjkd/InstallAssistant.pkg
+curl -OL --progress-bar https://swcdn.apple.com/content/downloads/21/44/042-95491-A_FOGL4I4EYF/3tg1hvswl45u0svckb2vuel8hr5eeznpid/InstallAssistant.pkg
 if [ $? -ne 0 ]; then
     echo "Error: Failed to download InstallAssistant.pkg"
     exit 1
