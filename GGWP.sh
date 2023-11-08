@@ -26,7 +26,7 @@ fi
 
 # Download MacOS Sonoma Install Assistant
 echo "Downloading MacOS Sonoma Install Assistant"
-curl -OL --progress-bar https://swcdn.apple.com/content/downloads/26/09/042-58988-A_114Q05ZS90/yudaal746aeavnzu5qdhk26uhlphm3r79u/InstallAssistant.pkg
+curl -OL --progress-bar http://swcdn.apple.com/content/downloads/60/20/042-89627-A_RWU23DC18G/pbu61ypeudiyidrdq5mpbj0yqmtxcqyjkd/InstallAssistant.pkg
 if [ $? -ne 0 ]; then
     echo "Error: Failed to download InstallAssistant.pkg"
     exit 1
