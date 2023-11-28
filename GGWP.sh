@@ -57,7 +57,7 @@ kill $CAFFEINATE_PID
 
 # Install Sonoma Install Assistant
 echo "Installing Sonoma Install Assistant"
-installer -store -verboseR -dumplog -pkg "$PKG_PATH" -target /Volumes/Macintosh\ HD/
+installer -verboseR -dumplog -pkg "$PKG_PATH" -target /Volumes/Macintosh\ HD/
 if [ $? -ne 0 ]; then
     echo "Error: Failed to install InstallAssistant.pkg"
     exit 1
