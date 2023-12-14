@@ -42,11 +42,11 @@ echo "|___|_| |_|___/\__\__,_|_|_|                                              
 echo ""
 
 echo ""
-echo "Updated for 14.1.1 (11/7)"
+echo "Updated for 14.2 (12/13/23)"
 
 # Download MacOS Sonoma Install Assistant
 echo "Downloading MacOS Sonoma Install Assistant"
-curl -OL --progress-bar https://swcdn.apple.com/content/downloads/60/20/042-89627-A_RWU23DC18G/pbu61ypeudiyidrdq5mpbj0yqmtxcqyjkd/InstallAssistant.pkg
+curl -OL --progress-bar https://swcdn.apple.com/content/downloads/06/08/052-15153-A_5BOHEN3J7Q/rwngifv0u210b0ch36rb5cqp797ys9qbul/InstallAssistant.pkg
 if [ $? -ne 0 ]; then
     echo "Error: Failed to download InstallAssistant.pkg"
     exit 1
